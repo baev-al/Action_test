@@ -47,3 +47,6 @@ jobs:
         run:  |
               qmake -r ${{ env.SOURCE_DIR }}\HelloWorld\HelloWorld.pro
 
+      - name: (6) List
+        run: dir
+
