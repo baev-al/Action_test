@@ -37,11 +37,6 @@ jobs:
       - name: (3) Create build directory
         run:  mkdir ${{ runner.temp }}\build
 
-      - name: Set up MinGW
-        uses: egor-tensin/setup-mingw@v2
-        with:
-          platform: x64
-
       - name: (5) Build
         working-directory: ${{ runner.temp }}\build
         run:  |
@@ -53,7 +48,7 @@ jobs:
               
       - name: my make
         working-directory: ${{ runner.temp }}\build
-        run: x86_64-w64-mingw32-make
+        run: win64_mingw2-make
 
       - name: dir after make
         working-directory: ${{ runner.temp }}\build
