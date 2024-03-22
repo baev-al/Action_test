@@ -46,6 +46,7 @@ jobs:
         working-directory: ${{ runner.temp }}\build
         run:  |
               qmake -r ${{ env.SOURCE_DIR }}\HelloWorld\HelloWorld.pro
+              win64_mingw -j8
               cd release
               windeployqt ${{ env.SOURCE_DIR }} HelloWorld.exe --pdb --release --compiler-runtime
               dir
