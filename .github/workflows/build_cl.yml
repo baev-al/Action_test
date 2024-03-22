@@ -25,4 +25,6 @@ jobs:
         g++ -v
         g++ main.cpp -o main
     - name: Run my file
-      run: ./main
+      run: |
+        ls -al
+        ./main
