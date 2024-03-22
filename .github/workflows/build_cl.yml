@@ -27,4 +27,4 @@ jobs:
     - name: Run my file
       run: |
         ls -al
-        ./main
+        ./HelloWorldCommandLine/main
