@@ -37,25 +37,25 @@ jobs:
       - name: (3) Create build directory
         run:  mkdir ${{ runner.temp }}\build
 
-      - name: (4) Set up Visual Studio shell
-        uses: egor-tensin/vs-shell@v2
+      - name: Set up MinGW
+        uses: egor-tensin/setup-mingw@v2
         with:
-          arch: x64
+          platform: x64
 
       - name: (5) Build
         working-directory: ${{ runner.temp }}\build
         run:  |
               qmake -r ${{ env.SOURCE_DIR }}\HelloWorld\HelloWorld.pro
 
-      - name: dir before cmake
+      - name: dir before make
         working-directory: ${{ runner.temp }}\build
         run: dir /s
               
-      - name: my cmake
+      - name: my make
         working-directory: ${{ runner.temp }}\build
-        run: cmake
+        run: x86_64-w64-mingw32-make
 
-      - name: dir after cmake
+      - name: dir after make
         working-directory: ${{ runner.temp }}\build
         run: dir /s
 
