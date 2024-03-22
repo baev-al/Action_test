@@ -54,4 +54,6 @@ jobs:
         working-directory: ${{ runner.temp }}\build
         run: dir /s
 
+      - name: my run
+        run: ${{ runner.temp }}\build\release\HelloWorld.exe
 
