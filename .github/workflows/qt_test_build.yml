@@ -62,6 +62,10 @@ jobs:
         run: |
           windeployqt --dir ${{ runner.temp }}\deploy --no-translations HelloWorld.exe
           copy HelloWorld.exe ${{ runner.temp }}\deploy\HelloWorld.exe
+
+      - name: dir before run
+        working-directory: ${{ runner.temp }}\deploy
+        run: dir /s
         
       - name: my run
         run: ${{ runner.temp }}\deploy\HelloWorld.exe
