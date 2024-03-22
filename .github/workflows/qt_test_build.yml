@@ -1,0 +1,72 @@
+name: My QT windows build
+
+on:
+  push:
+    branches:
+      - 'master'
+      - 'continuous-integration'
+  workflow_dispatch:
+    
+
+defaults:
+  run:
+    shell: cmd
+
+env:
+  SOURCE_DIR:   ${{ github.workspace }}
+  QT_VERSION:   6.3.2
+
+jobs:
+  build:
+    runs-on:  windows-2019
+
+    steps:
+      - name: (1) Checkout repo
+        uses: actions/checkout@v3
+
+      - name: (2) Install Qt
+        uses: jurplel/install-qt-action@v3
+        with:
+          aqtversion: '==3.1.*'
+          version: '6.3.2'
+          host: 'windows'
+          target: 'desktop'
+          arch: 'win64_mingw'
+          modules: 'qtcharts'
+
+      - name: (3) Create build directory
+        run:  mkdir ${{ runner.temp }}\build
+
+      - name: (3) Create deploy directory
+        run:  mkdir ${{ runner.temp }}\deploy
+
+      - name: (5) Build
+        working-directory: ${{ runner.temp }}\build
+        run:  |
+              qmake -r ${{ env.SOURCE_DIR }}\HelloWorld\HelloWorld.pro
+
+      - name: dir before make
+        working-directory: ${{ runner.temp }}\build
+        run: dir /s
+              
+      - name: my make
+        working-directory: ${{ runner.temp }}\build
+        run: mingw32-make.exe -j8
+
+      - name: dir after make
+        working-directory: ${{ runner.temp }}\build
+        run: dir /s
+
+      - name: my deploy
+        working-directory: ${{ runner.temp }}\build\release
+        run: |
+          windeployqt --dir ${{ runner.temp }}\deploy --no-translations HelloWorld.exe
+          copy HelloWorld.exe ${{ runner.temp }}\deploy\HelloWorld.exe
+
+      - name: dir before run
+        working-directory: ${{ runner.temp }}\deploy
+        run: dir /s
+        
+      - name: my run
+        run: ${{ runner.temp }}\deploy\HelloWorld.exe
+
