@@ -46,9 +46,17 @@ jobs:
         working-directory: ${{ runner.temp }}\build
         run:  |
               qmake -r ${{ env.SOURCE_DIR }}\HelloWorld\HelloWorld.pro
-              cmake
-              dir
 
-      - name: (6) List
+      - name: dir before cmake
+        working-directory: ${{ runner.temp }}\build
         run: dir
+              
+      - name: my cmake
+        working-directory: ${{ runner.temp }}\build
+        run: cmake
+
+      - name: dir after cmake
+        working-directory: ${{ runner.temp }}\build
+        run: dir
+
 
