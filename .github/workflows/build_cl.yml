@@ -21,6 +21,8 @@ jobs:
     - name: Build my files
       run: |
         cd HelloWorldCommandLine
+        ls -al
+        g++ -v
         g++ main.cpp -o main
     - name: Run my file
       run: ./main
