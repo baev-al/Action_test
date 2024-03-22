@@ -59,7 +59,10 @@ jobs:
 
       - name: my deploy
         working-directory: ${{ runner.temp }}\build\release
-        run: windeployqt --dir ${{ runner.temp }}\deploy --no-translations HelloWorld.exe
+        run: |
+          windeployqt --dir ${{ runner.temp }}\deploy --no-translations HelloWorld.exe
+          cp HelloWorld.exe ${{ runner.temp }}\deploy\HelloWorld.exe
+        
       - name: my run
         run: ${{ runner.temp }}\deploy\HelloWorld.exe
 
