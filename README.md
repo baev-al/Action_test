@@ -1,1 +1,1 @@
-<!-- ![Diagram Image Link](./diagram.puml) -->
+<!-- ![Diagram Image Link](https://github.com/baev-al/Action_test/blob/master/diagram.puml) -->
