@@ -1,1 +1,7 @@
-![your-UML-diagram-name](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://github.com/baev-al/Action_test/blob/master/diagram.puml)
+```mermaid
+graph TD;
+    A-->B;
+    A-->C;
+    B-->D;
+    C-->D;
+```
