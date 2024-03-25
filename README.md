@@ -1,1 +1,8 @@
-<!-- ![Diagram Image Link](https://github.com/baev-al/Action_test/blob/master/diagram.puml) -->
+@startuml
+class User {
+  -String id
+  -String name
+  +String name()
+}
+User <|-- SpecificUser
+@enduml
