@@ -1,7 +1,7 @@
 QT += testlib
 QT -= gui
 
-QMAKE_CXXFLAGS += --enable-libstdcxx-filesystem-ts
+QMAKE_CXXFLAGS += -std=c++17
 
 CONFIG += qt console warn_on depend_includepath testcase
 CONFIG -= app_bundle
