@@ -43,7 +43,7 @@ jobs:
       - name: (5) Build
         working-directory: ${{ runner.temp }}\build
         run:  |
-              qmake -r ${{ env.SOURCE_DIR }}\HelloWorld\HelloWorld.pro
+              qmake -r ${{ env.SOURCE_DIR }}\TestHelloWorld\TestHelloWorld.pro
 
       - name: dir before make
         working-directory: ${{ runner.temp }}\build
@@ -60,13 +60,13 @@ jobs:
       - name: my deploy
         working-directory: ${{ runner.temp }}\build\release
         run: |
-          windeployqt6 --dir ${{ runner.temp }}\deploy --no-translations HelloWorld.exe
-          copy HelloWorld.exe ${{ runner.temp }}\deploy\HelloWorld.exe
+          windeployqt6 --dir ${{ runner.temp }}\deploy --no-translations TestHelloWorld.exe
+          copy TestHelloWorld.exe ${{ runner.temp }}\deploy\TestHelloWorld.exe
 
       - name: dir before run
         working-directory: ${{ runner.temp }}\deploy
         run: dir /s
         
       - name: my run
-        run: ${{ runner.temp }}\deploy\HelloWorld.exe
+        run: ${{ runner.temp }}\deploy\TestHelloWorld.exe
 
