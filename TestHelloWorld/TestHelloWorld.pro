@@ -1,7 +1,7 @@
 QT += testlib
 QT -= gui
 
-QMAKE_CXXFLAGS += -std=c++17
+QMAKE_CXXFLAGS += -std=c++11
 
 CONFIG += qt console warn_on depend_includepath testcase
 CONFIG -= app_bundle
