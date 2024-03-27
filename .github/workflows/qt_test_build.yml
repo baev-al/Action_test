@@ -51,7 +51,7 @@ jobs:
               
       - name: my make
         working-directory: ${{ runner.temp }}\build
-        run: mingw64-make.exe -j8
+        run: mingw32-make.exe -j8
 
       - name: dir after make
         working-directory: ${{ runner.temp }}\build
