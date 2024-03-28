@@ -44,9 +44,10 @@ jobs:
       - name: (5) Build
         working-directory: ${{ runner.temp }}\build
         run:  |
-              D:\a\Action_test\Qt\6.5.3\mingw_64\bin\qtenv2.bat
+              SET PATH = D:\a\Action_test\Qt\6.5.3\mingw_64\bin;%PATH%
+              cd D:\a\Action_test\Qt\6.5.3\mingw_64\
               qmake -r ${{ env.SOURCE_DIR }}\TestHelloWorld\TestHelloWorld.pro
-              make.exe -j8
+              mingw32-make.exe -j8
 
       - name: dir after make
         working-directory: ${{ runner.temp }}\build
