@@ -30,6 +30,7 @@ jobs:
           aqtversion: '==3.1.*'
           version: '6.3.2'
           host: 'windows'
+          install-deps: 'true'
           target: 'desktop'
           arch: 'win64_mingw'
           modules: 'qtcharts'
