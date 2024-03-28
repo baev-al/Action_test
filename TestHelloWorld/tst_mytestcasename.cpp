@@ -1,5 +1,6 @@
 #include <QtTest>
 #include "multiplicator.h"
+#include <iostream>
 
 // add necessary includes here
 
@@ -23,6 +24,7 @@ void MyTestCaseName::test_case1()
 {
     Multiplicator m;
     QVERIFY(m.multiply(3, 3) == 9);
+    std::cout.flush();
 }
 
 QTEST_APPLESS_MAIN(MyTestCaseName)
