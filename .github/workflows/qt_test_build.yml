@@ -47,7 +47,7 @@ jobs:
               SET PATH = D:\a\Action_test\Qt\6.5.3\mingw_64\bin;%PATH%
               cd D:\a\Action_test\Qt\6.5.3\mingw_64\
               qmake -r ${{ env.SOURCE_DIR }}\TestHelloWorld\TestHelloWorld.pro
-              mingw32-make.exe -v
+              gcc --version
               mingw32-make.exe -j8
 
       - name: dir after make
