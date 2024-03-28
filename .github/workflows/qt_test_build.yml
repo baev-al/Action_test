@@ -63,5 +63,6 @@ jobs:
         run: dir /s
         
       - name: my run
+        shell: bash
         run: ${{ runner.temp }}\deploy\TestHelloWorld.exe
 
