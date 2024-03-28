@@ -22,7 +22,7 @@ MyTestCaseName::~MyTestCaseName() {}
 void MyTestCaseName::test_case1()
 {
     Multiplicator m;
-    QVERIFY(m.multiply(3, 3) == 9);
+    QVERIFY(m.multiply(3, 3) == 8);
 }
 
 QTEST_APPLESS_MAIN(MyTestCaseName)
