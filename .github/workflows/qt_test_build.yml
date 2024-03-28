@@ -65,7 +65,8 @@ jobs:
       - name: my run
         working-directory: ${{ runner.temp }}\deploy
         run: |
-          ${{ runner.temp }}\TestHelloWorld.exe
+          dir
+          TestHelloWorld.exe
           sleep 1
 
       # - uses: actions/upload-artifact@v4
