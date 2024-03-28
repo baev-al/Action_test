@@ -33,7 +33,7 @@ jobs:
           target: 'desktop'
           arch: 'win64_mingw'
           modules: 'qtcharts'
-          tools: 'tools_mingw,qt.tools.win64_mingw810'
+          tools: 'tools_mingw1310'
 
       - name: (3) Create build directory
         run:  mkdir ${{ runner.temp }}\build
