@@ -24,16 +24,16 @@ jobs:
       - name: (1) Checkout repo
         uses: actions/checkout@v3
 
-      # - name: Install Qt
-      #   uses: jurplel/install-qt-action@v3
-      #   with:
-      #     aqtversion: '==3.1.*'
-      #     version: '6.5.3'
-      #     host: 'windows'
-      #     target: 'desktop'
-      #     arch: 'win64_mingw'
-      #     modules: 'qtcharts'
-      #     tools: 'tools_mingw90'
+      - name: Install Qt
+        uses: jurplel/install-qt-action@v3
+        with:
+          aqtversion: '==3.1.*'
+          version: '6.5.3'
+          host: 'windows'
+          target: 'desktop'
+          arch: 'win64_mingw'
+          modules: 'qtcharts'
+          tools: 'tools_mingw90'
 
       - name: (3) Create build directory
         run:  mkdir ${{ runner.temp }}\build
@@ -44,8 +44,6 @@ jobs:
       - name: (5) Build
         working-directory: ${{ runner.temp }}\build
         run:  |
-              aqt install-qt windows desktop 6.5.3 win64_mingw
-              aqt install-tool windows desktop tools_mingw90
               SET PATH = D:\a\Action_test\Qt\6.5.3\mingw_64\bin;%PATH%
               cd D:\a\Action_test\Qt\6.5.3\mingw_64\
               qmake -r ${{ env.SOURCE_DIR }}\TestHelloWorld\TestHelloWorld.pro
