@@ -18,21 +18,22 @@ env:
 
 jobs:
   build:
-    runs-on:  windows-2019
+    runs-on:  windows-latest
 
     steps:
       - name: (1) Checkout repo
         uses: actions/checkout@v3
 
-      - name: (2) Install Qt
+      - name: Install Qt
         uses: jurplel/install-qt-action@v3
         with:
           aqtversion: '==3.1.*'
-          version: '6.3.2'
+          version: '6.5.3'
           host: 'windows'
           target: 'desktop'
           arch: 'win64_mingw'
           modules: 'qtcharts'
+          tools: 'tools_mingw90'
 
       - name: (3) Create build directory
         run:  mkdir ${{ runner.temp }}\build
@@ -44,14 +45,8 @@ jobs:
         working-directory: ${{ runner.temp }}\build
         run:  |
               qmake -r ${{ env.SOURCE_DIR }}\TestHelloWorld\TestHelloWorld.pro
-
-      - name: dir before make
-        working-directory: ${{ runner.temp }}\build
-        run: dir /s
-              
-      - name: my make
-        working-directory: ${{ runner.temp }}\build
-        run: mingw32-make.exe -j8
+              gcc --version
+              mingw32-make.exe -j8
 
       - name: dir after make
         working-directory: ${{ runner.temp }}\build
@@ -60,7 +55,7 @@ jobs:
       - name: my deploy
         working-directory: ${{ runner.temp }}\build\release
         run: |
-          windeployqt6 --dir ${{ runner.temp }}\deploy --no-translations TestHelloWorld.exe
+          windeployqt --dir ${{ runner.temp }}\deploy --no-translations TestHelloWorld.exe
           copy TestHelloWorld.exe ${{ runner.temp }}\deploy\TestHelloWorld.exe
 
       - name: dir before run
@@ -68,5 +63,6 @@ jobs:
         run: dir /s
         
       - name: my run
+        shell: cmd
         run: ${{ runner.temp }}\deploy\TestHelloWorld.exe
 
