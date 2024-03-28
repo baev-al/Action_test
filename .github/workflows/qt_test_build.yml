@@ -24,17 +24,15 @@ jobs:
       - name: (1) Checkout repo
         uses: actions/checkout@v3
 
-      - name: (2) Install Qt
+      - name: Install Qt
         uses: jurplel/install-qt-action@v3
         with:
           aqtversion: '==3.1.*'
           version: '6.5.3'
           host: 'windows'
-          install-deps: 'true'
           target: 'desktop'
           arch: 'win64_mingw'
           modules: 'qtcharts'
-          tools: 'tools_mingw830'
 
       - name: (3) Create build directory
         run:  mkdir ${{ runner.temp }}\build
