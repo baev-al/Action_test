@@ -63,11 +63,11 @@ jobs:
         run: dir /s
         
       - name: my run
-        shell: cmd
+        shell: pwsh
         run: ${{ runner.temp }}\deploy\TestHelloWorld.exe
 
-      - uses: actions/upload-artifact@v4
-        with:
-          name: my-artifact
-          path: ${{ runner.temp }}\deploy
+      # - uses: actions/upload-artifact@v4
+      #   with:
+      #     name: my-artifact
+      #     path: ${{ runner.temp }}\deploy
 
