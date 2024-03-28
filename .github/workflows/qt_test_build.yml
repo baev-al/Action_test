@@ -55,7 +55,7 @@ jobs:
       - name: my deploy
         working-directory: ${{ runner.temp }}\build\release
         run: |
-          windeployqt6 --dir ${{ runner.temp }}\deploy --no-translations TestHelloWorld.exe
+          windeployqt --dir ${{ runner.temp }}\deploy --no-translations TestHelloWorld.exe
           copy TestHelloWorld.exe ${{ runner.temp }}\deploy\TestHelloWorld.exe
 
       - name: dir before run
