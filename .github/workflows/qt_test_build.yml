@@ -44,8 +44,8 @@ jobs:
       - name: (5) Build
         working-directory: ${{ runner.temp }}\build
         run:  |
-              SET PATH = D:\a\Action_test\Qt\6.5.3\mingw_64\bin;%PATH%
-              cd D:\a\Action_test\Qt\6.5.3\mingw_64\
+              # SET PATH = D:\a\Action_test\Qt\6.5.3\mingw_64\bin;%PATH%
+              # cd D:\a\Action_test\Qt\6.5.3\mingw_64\
               qmake -r ${{ env.SOURCE_DIR }}\TestHelloWorld\TestHelloWorld.pro
               gcc --version
               mingw32-make.exe -j8
