@@ -44,15 +44,9 @@ jobs:
       - name: (5) Build
         working-directory: ${{ runner.temp }}\build
         run:  |
+              D:\a\Action_test\Qt\6.5.3\mingw_64\qtenv2.bat
               qmake -r ${{ env.SOURCE_DIR }}\TestHelloWorld\TestHelloWorld.pro
-
-      - name: dir before make
-        working-directory: ${{ runner.temp }}\build
-        run: dir /s
-              
-      - name: my make
-        working-directory: ${{ runner.temp }}\build
-        run: make.exe -j8
+              make.exe -j8
 
       - name: dir after make
         working-directory: ${{ runner.temp }}\build
