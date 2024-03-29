@@ -65,9 +65,9 @@ jobs:
       - name: my run
         working-directory: ${{ runner.temp }}\deploy
         run: |
-          dir
+          # dir
           TestHelloWorld -v1
-          sleep 1
+          # sleep 1
 
       # - uses: actions/upload-artifact@v4
       #   with:
