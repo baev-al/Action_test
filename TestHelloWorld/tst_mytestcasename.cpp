@@ -24,6 +24,7 @@ void MyTestCaseName::test_case1()
 {
     Multiplicator m;
     QVERIFY(m.multiply(3, 3) == 9);
+    std::cout << "\n\n***************************Hello********************************\n\n";
     std::cout.flush();
 }
 
