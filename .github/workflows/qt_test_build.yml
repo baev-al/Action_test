@@ -23,6 +23,10 @@ jobs:
     steps:
       - name: (1) Checkout repo
         uses: actions/checkout@v3
+        with:
+          sparse-checkout: |
+            HelloWorld
+            TestHelloWorld
 
       - name: Install Qt
         uses: jurplel/install-qt-action@v3
