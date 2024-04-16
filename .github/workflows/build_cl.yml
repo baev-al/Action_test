@@ -1,5 +1,7 @@
 name: HelloWorld CL build
 
+run-name: ${{ github.actor }} is learning GitHub Actions
+
 on:
   push:
     branches: [ "master" ]
